@@ -4,7 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import LandingPage from "./pages/LandingPage";
 import Category from "./pages/Category";
-// import Application from "./pages/Application";
+import Application from "./pages/Application";
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/katalog" element={<Category />} />
-        {/* <Route path="/aplikasi/:id" element={<Application />} /> */}
+        <Route path="/aplikasi/:id" element={<Application />} />
       </Routes>
       <Footer />
     </BrowserRouter>
