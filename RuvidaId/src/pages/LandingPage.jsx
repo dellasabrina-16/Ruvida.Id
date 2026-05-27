@@ -1,88 +1,13 @@
 import { useState } from "react";
+import Navbar from "../layout/Navbar";
+import Footer from "../layout/Footer";
 import { kategoriList, aplikasiPerKategori } from "../data/data";
-
-// ── Navbar ──────────────────────────────────────────────────
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f2e2b]/90 backdrop-blur-md border-b border-white/5">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-[#2A8B85] flex items-center justify-center">
-            <span className="text-white text-sm font-bold">R</span>
-          </div>
-          <span className="text-white font-bold text-lg tracking-tight">
-            Ruvida<span className="text-[#2A8B85]">.id</span>
-          </span>
-        </div>
-
-        {/* Right Side */}
-        <div className="hidden md:flex items-center gap-6">
-
-          {/* Menu */}
-          <div className="flex items-center gap-8">
-            {["Layanan", "Kelebihan", "Produk"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <button className="bg-[#2A8B85] hover:bg-[#238880] text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors duration-200">
-            Lihat Katalog
-          </button>
-
-        </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-white/80 hover:text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-[#0f2e2b] border-t border-white/5 px-4 py-4 flex flex-col gap-4">
-          {["Layanan", "Kelebihan", "Produk"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-white/70 hover:text-white text-sm font-medium"
-              onClick={() => setMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-          <button className="bg-[#2A8B85] text-white text-sm font-semibold px-5 py-2 rounded-lg w-full">
-            Lihat Katalog
-          </button>
-        </div>
-      )}
-    </nav>
-  );
-}
 
 // ── Hero Section ────────────────────────────────────────────
 function HeroSection() {
   return (
     <section
-      id="layanan"
+      id=""
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-40 pb-12 overflow-hidden bg-[#0f2421]"
     >
 
@@ -245,7 +170,7 @@ const paketList = [
 
 function PaketSection() {
   return (
-    <section id="paket" className="bg-white py-20 px-4">
+    <section id="layanan" className="bg-white py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-[#2A8B85] text-sm font-semibold uppercase tracking-widest mb-3 block">
@@ -495,80 +420,17 @@ function BestSellerSection() {
   );
 }
 
-// ── Footer ──────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer
-      className="py-16 px-4"
-      style={{ background: "linear-gradient(160deg, #0a2420 0%, #0f3530 100%)" }}
-    >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12">
-        {/* Brand */}
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-[#2A8B85] flex items-center justify-center">
-              <span className="text-white text-sm font-bold">R</span>
-            </div>
-            <span className="text-white font-bold text-lg tracking-tight">
-              Ruvida<span className="text-[#2A8B85]">.id</span>
-            </span>
-          </div>
-          <p className="text-white/40 text-sm leading-relaxed max-w-xs">
-            Platform solusi aplikasi digital Indonesia. Ratusan template siap terjangkau, dukungan 24/7.
-          </p>
-        </div>
-
-        {/* Kategori */}
-        <div>
-          <h4 className="text-white font-semibold text-sm mb-5">Kategori</h4>
-          <ul className="flex flex-col gap-3">
-            {["Apk Sekolah", "Apk Kasir", "Undangan Digital", "Apk Klinik", "Toko Online"].map((k) => (
-              <li key={k}>
-                <a href="#" className="text-white/40 hover:text-white/80 text-sm transition-colors">
-                  {k}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Kontak */}
-        <div>
-          <h4 className="text-white font-semibold text-sm mb-5">Kontak</h4>
-          <ul className="flex flex-col gap-3">
-            <li className="flex items-center gap-2 text-white/40 text-sm">
-              <span>📞</span> +62-812-XXXX-XXXX
-            </li>
-            <li className="flex items-center gap-2 text-white/40 text-sm">
-              <span>✉️</span> hello@ruvida.id
-            </li>
-            <li className="flex items-center gap-2 text-white/40 text-sm">
-              <span>📍</span> Serang–Batos, DK-TT WIB
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-white/25 text-xs">© 2024 Ruvida.id — Semua Hak Dilindungi</p>
-        <p className="text-white/25 text-xs">
-          Dibuat dengan ❤️ untuk UMKM Indonesia
-        </p>
-      </div>
-    </footer>
-  );
-}
-
 // ── Main LandingPage ─────────────────────────────────────────
 export default function LandingPage() {
   return (
     <div className="font-[Sora,sans-serif] antialiased">
       <Navbar />
+
       <HeroSection />
       <PaketSection />
       <KeunggulanSection />
       <BestSellerSection />
-      {/* <KategoriSection /> */}
+
       <Footer />
     </div>
   );
