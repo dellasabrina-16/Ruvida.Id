@@ -1,144 +1,76 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { User, ChevronDown, Menu, X } from "lucide-react";
-
-// Simulasi state login — nanti diganti dengan auth context / Redux
-const MOCK_USER = {
-  isLoggedIn: false, // Ganti true untuk simulasi sudah login
-  username: "Llaaa_sabbb",
-};
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [userDropdown, setUserDropdown] = useState(false);
-  const navigate = useNavigate();
-
-  // Simulasi user — nanti dari context/auth
-  const user = MOCK_USER;
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-primary sticky top-0 z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-accent-teal rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">R</span>
-            </div>
-            <span className="text-white font-bold text-xl">
-              Ruvida<span className="text-accent-teal">.id</span>
-            </span>
-          </Link>
-
-          {/* Menu Desktop */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link
-              to="/#layanan"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-            >
-              Layanan
-            </Link>
-            <Link
-              to="/#kelebihan"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-            >
-              Kelebihan
-            </Link>
-            <Link
-              to="/#produk"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-            >
-              Produk
-            </Link>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f2e2b]/90 backdrop-blur-md border-b border-white/5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+        
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-[#2A8B85] flex items-center justify-center">
+            <span className="text-white text-sm font-bold">R</span>
           </div>
 
-          {/* Kanan: CTA + User */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              to="/katalog"
-              className="bg-accent-teal text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-teal-400 transition-colors"
-            >
-              Lihat Katalog
-            </Link>
-
-            {/* Divider */}
-            <div className="w-px h-6 bg-gray-600" />
-
-            {/* Icon User / Dropdown kalau sudah login */}
-            {user.isLoggedIn ? (
-              <div className="relative">
-                <button
-                  onClick={() => setUserDropdown(!userDropdown)}
-                  className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors"
-                >
-                  <User size={22} />
-                  <ChevronDown size={16} />
-                </button>
-                {userDropdown && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-xl py-1 z-50">
-                    <Link
-                      to="/akun"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                      onClick={() => setUserDropdown(false)}
-                    >
-                      Profil
-                    </Link>
-                    <button
-                      className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-50"
-                      onClick={() => setUserDropdown(false)}
-                    >
-                      Keluar
-                    </button>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <button
-                onClick={() => navigate("/akun")}
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <User size={22} />
-              </button>
-            )}
-          </div>
-
-          {/* Hamburger Mobile */}
-          <button
-            className="md:hidden text-gray-300 hover:text-white"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <span className="text-white font-bold text-lg tracking-tight">
+            Ruvida<span className="text-[#2A8B85]">.id</span>
+          </span>
         </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-6">
+
+          <div className="flex items-center gap-8">
+            {["Layanan", "Kelebihan", "Produk"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+
+          <button className="bg-[#2A8B85] hover:bg-[#238880] text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors duration-200">
+            Lihat Katalog
+          </button>
+
+        </div>
+
+        {/* Mobile Button */}
+        <button
+          className="md:hidden text-white/80 hover:text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {menuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
       </div>
 
       {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-primary-light border-t border-gray-700 px-4 py-4 space-y-3">
-          <Link
-            to="/#layanan"
-            className="block text-gray-300 hover:text-white text-sm font-medium py-1"
-          >
-            Layanan
-          </Link>
-          <Link
-            to="/#kelebihan"
-            className="block text-gray-300 hover:text-white text-sm font-medium py-1"
-          >
-            Kelebihan
-          </Link>
-          <Link
-            to="/#produk"
-            className="block text-gray-300 hover:text-white text-sm font-medium py-1"
-          >
-            Produk
-          </Link>
-          <Link
-            to="/katalog"
-            className="block bg-accent-teal text-white px-4 py-2 rounded-lg text-sm font-semibold text-center"
-          >
+      {menuOpen && (
+        <div className="md:hidden bg-[#0f2e2b] border-t border-white/5 px-4 py-4 flex flex-col gap-4">
+          {["Layanan", "Kelebihan", "Produk"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-white/70 hover:text-white text-sm font-medium"
+              onClick={() => setMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+
+          <button className="bg-[#2A8B85] text-white text-sm font-semibold px-5 py-2 rounded-lg w-full">
             Lihat Katalog
-          </Link>
+          </button>
         </div>
       )}
     </nav>
