@@ -39,7 +39,7 @@ export default function Category() {
                 if (kat.id === "custom") {
                   navigate("/custom");
                 } else {
-                  navigate(`  /aplikasi/${kat.id}`)
+                  navigate(`/aplikasi/${kat.id}`)
                 }
               }}
               className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
