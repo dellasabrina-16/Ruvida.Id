@@ -65,8 +65,9 @@ export default function Application() {
             {apps.map((app) => (
               <div
                 key={app.id}
+                onClick={() => navigate(`/aplikasi/${id}/${app.id}`)}
                 className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-white border border-gray-100"
-              >
+              > 
                 {/* Icon Area */}
                 <div
                   className="flex items-center justify-center h-40 relative"
@@ -88,7 +89,13 @@ export default function Application() {
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">{app.deskripsi}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-[#1d6b66] text-sm font-semibold">{app.harga}</span>
-                    <button className="text-xs bg-[#e8f5f4] text-[#1d6b66] font-semibold px-3 py-1.5 rounded-lg hover:bg-[#2A8B85] hover:text-white transition-colors duration-200">
+                    <button
+                     onClick={(e) => {
+                      e.stopPropagation();
+                      navigate(`/aplikasi/${id}/${app.id}`)
+                     }}
+                     className="text-xs bg-[#e8f5f4] text-[#1d6b66] font-semibold px-3 py-1.5 rounded-lg hover:bg-[#2A8B85] hover:text-white transition-colors duration-200
+                    ">
                       Lihat Detail →
                     </button>
                   </div>

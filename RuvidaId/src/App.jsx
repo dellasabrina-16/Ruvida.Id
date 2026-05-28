@@ -5,17 +5,25 @@ import Footer from "./components/layout/Footer";
 import LandingPage from "./pages/LandingPage";
 import Category from "./pages/Category";
 import Application from "./pages/Application";
+import ProductDetails from "./pages/ProductDetails";
+import { AuthProvider } from "./context/AuthContext";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/katalog" element={<Category />} />
-        <Route path="/aplikasi/:id" element={<Application />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/katalog" element={<Category />} />
+          <Route path="/aplikasi/:id" element={<Application />} />
+          <Route
+            path="/aplikasi/:kategori/:produk"
+            element={<ProductDetails />}
+          />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
