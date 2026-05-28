@@ -205,9 +205,9 @@ export default function ProductDetails() {
             <button
               onClick={() => {
                 if (!user.isLoggedIn) {
-                  navigate("/akun");
-                } else {
                   alert("Fitur berlangganan segera hadir!");
+                } else {
+                  navigate("/akun");
                 }
               }}
               className="w-55 flex items-center justify-center gap-2 bg-[#1d6b66] hover:bg-[#175f5a] text-white font-semibold py-3 rounded-xl transition-colors duration-200 mb-4 text-base"
