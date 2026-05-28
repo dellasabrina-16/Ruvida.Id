@@ -8,6 +8,7 @@ import Application from "./pages/Application";
 import ProductDetails from "./pages/ProductDetails";
 import { AuthProvider } from "./context/AuthContext";
 import Chatbot from "./pages/Chatbot";
+import Account from "./pages/Account";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             element={<ProductDetails />}
           />
           <Route path="custom" element={<Chatbot />}/>
+          <Route path="akun" element={<Account />} />
         </Routes>
         <Footer />
       </BrowserRouter>
