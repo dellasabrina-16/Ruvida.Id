@@ -340,3 +340,210 @@ export const aplikasiPerKategori = {
 
   custom: [],
 };
+
+// ─── DETAIL PRODUK ──────────────────────────────────────────
+// Nanti diganti: GET /api/produk/:id
+export const detailProduk = {
+  "kasir-kafe": {
+    screenshots: [
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Dashboard",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Menu+Digital",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Laporan",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Manajemen+Meja",
+    ],
+    hargaBulan: "Rp 120K/bln",
+    fitur: [
+      "Manajemen menu digital dengan foto",
+      "Sistem meja dan reservasi",
+      "Kitchen Display System (KDS)",
+      "Laporan penjualan real-time",
+      "Multi user (kasir & admin)",
+      "Integrasi printer struk",
+      "Dashboard analitik interaktif",
+      "Export laporan ke PDF/Excel",
+    ],
+    keunggulan: [
+      "Deploy dalam hitungan menit",
+      "Tanpa install aplikasi tambahan",
+      "Support 24/7 via WhatsApp",
+      "Server lokal Indonesia",
+      "Update fitur gratis selamanya",
+    ],
+    deskripsiPanjang: `Sistem Kasir Kafe & Resto adalah aplikasi modern yang dirancang untuk membantu operasional bisnis makanan dan minuman menjadi lebih cepat, rapi, dan efisien. Aplikasi ini mendukung proses transaksi penjualan, manajemen menu, pencatatan stok bahan, hingga laporan keuangan secara otomatis dalam satu dashboard yang mudah digunakan.
+
+Melalui dashboard analitik yang interaktif, pemilik usaha dapat melihat laporan omzet, produk terlaris, jumlah transaksi, dan performa penjualan harian maupun bulanan secara lebih detail. Sistem ini sangat cocok digunakan untuk berbagai jenis usaha kuliner seperti coffee shop, restoran, cafe modern, food court, hingga UMKM kuliner yang ingin meningkatkan kualitas pelayanan dan efisiensi manajemen bisnis mereka.`,
+    demoUrl: "https://demo.ruvida.id/kasir-kafe",
+  },
+  "kasir-retail": {
+    screenshots: [
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Dashboard+Retail",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Stok+Barang",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Transaksi",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Laporan",
+    ],
+    hargaBulan: "Rp 99K/bln",
+    fitur: [
+      "POS dengan barcode scanner",
+      "Manajemen stok otomatis",
+      "Sistem diskon & promo",
+      "Cetak struk otomatis",
+      "Multi kasir",
+      "Laporan penjualan harian",
+    ],
+    keunggulan: [
+      "Cocok untuk toko retail skala kecil-menengah",
+      "Antarmuka mudah digunakan",
+      "Tidak perlu hardware khusus",
+    ],
+    deskripsiPanjang: `Kasir Toko Retail adalah solusi POS modern untuk toko retail dengan fitur stok, barcode scanner, diskon, dan cetak struk otomatis. Dirancang untuk kemudahan penggunaan sehari-hari.`,
+    demoUrl: "https://demo.ruvida.id/kasir-retail",
+  },
+  "siakademik": {
+    screenshots: [
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Dashboard+Akademik",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Data+Siswa",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Nilai+%26+Raport",
+      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Absensi",
+    ],
+    hargaBulan: "Rp 200K/bln",
+    fitur: [
+      "Manajemen data siswa lengkap",
+      "Input nilai dan raport digital",
+      "Absensi harian otomatis",
+      "Jadwal pelajaran",
+      "Notifikasi ke orang tua",
+      "Laporan akademik per semester",
+    ],
+    keunggulan: [
+      "Terintegrasi semua kebutuhan sekolah",
+      "Akses dari mana saja",
+      "Data aman di server lokal",
+    ],
+    deskripsiPanjang: `SiAkademik Pro adalah sistem informasi akademik lengkap yang mencakup nilai, absensi, jadwal, dan raport digital terintegrasi. Memudahkan guru, siswa, dan orang tua dalam memantau perkembangan akademik.`,
+    demoUrl: "https://demo.ruvida.id/siakademik",
+  },
+};
+
+// Fallback untuk produk yang belum punya detail spesifik
+// Nanti saat API sudah ada, fungsi ini tidak diperlukan lagi
+export function getDetailProduk(produkId) {
+  return (
+    detailProduk[produkId] || {
+      screenshots: [
+        "https://placehold.co/600x400/0f2e2b/2A8B85?text=Screenshot+1",
+        "https://placehold.co/600x400/0f2e2b/2A8B85?text=Screenshot+2",
+        "https://placehold.co/600x400/0f2e2b/2A8B85?text=Screenshot+3",
+        "https://placehold.co/600x400/0f2e2b/2A8B85?text=Screenshot+4",
+      ],
+      hargaBulan: "Rp 99K/bln",
+      fitur: [
+        "Fitur utama lengkap",
+        "Dashboard admin",
+        "Laporan otomatis",
+        "Multi user",
+        "Support 24/7",
+      ],
+      keunggulan: [
+        "Deploy cepat",
+        "Tanpa install tambahan",
+        "Server lokal Indonesia",
+      ],
+      deskripsiPanjang:
+        "Aplikasi profesional yang dirancang untuk membantu operasional bisnis Anda menjadi lebih efisien dan terdigitalisasi.",
+      demoUrl: "#",
+    }
+  );
+}
+
+// ─── SUBSCRIPTIONS (Mock User) ───────────────────────────────
+// Nanti diganti: GET /api/user/subscriptions
+export const dummySubscriptions = [
+  {
+    id: 1,
+    nama: "Kasir Kafe & Resto",
+    kategori: "Aplikasi Kasir",
+    icon: "☕",
+    iconBg: "#fef3c7",
+    durasi: "12 Bulan",
+    periode: "31 Des 2025 – 31 Des 2026",
+    status: "Aktif",
+    statusBayar: "Sudah Bayar",
+  },
+  {
+    id: 2,
+    nama: "Landing Page Salon",
+    kategori: "Website",
+    icon: "💅",
+    iconBg: "#fce7f3",
+    durasi: "6 Bulan",
+    periode: "21 Jul 2026 – 21 Jan 2027",
+    status: "Aktif",
+    statusBayar: "Sudah Bayar",
+  },
+  {
+    id: 3,
+    nama: "Manajemen Keuangan",
+    kategori: "Aplikasi Keuangan",
+    icon: "💰",
+    iconBg: "#d1fae5",
+    durasi: "6 Bulan",
+    periode: "21 Jul 2025 – 21 Jan 2026",
+    status: "Expired",
+    statusBayar: "Sudah Bayar",
+  },
+  {
+    id: 4,
+    nama: "Booking Service",
+    kategori: "Aplikasi",
+    icon: "📅",
+    iconBg: "#dbeafe",
+    durasi: "10 Bulan",
+    periode: "31 Jul 2025 – 31 Mei 2026",
+    status: "Segera Berakhir",
+    statusBayar: "Sudah Bayar",
+  },
+  {
+    id: 5,
+    nama: "Undangan Wedding",
+    kategori: "Website",
+    icon: "💍",
+    iconBg: "#ede9fe",
+    durasi: "1 Bulan",
+    periode: "–",
+    status: "Draft",
+    statusBayar: "Belum Dibayar",
+  },
+];
+
+// ─── CHATBOT ─────────────────────────────────────────────────
+export const chatbotConfig = {
+  quickRepliesAwal: [
+    "Saya butuh aplikasi kasir",
+    "Buat sistem inventori",
+    "Aplikasi untuk klinik",
+  ],
+  contohKebutuhan: [
+    "Aplikasi Kasir & Resto",
+    "Sistem Manajemen Sekolah",
+    "Aplikasi Klinik & Rekam Medis",
+    "Marketplace & Toko Online",
+    "Sistem Inventori Gudang",
+  ],
+  systemPrompt: `Kamu adalah Asisten Ruvida, AI assistant dari platform Ruvida.id — platform penyedia aplikasi digital untuk bisnis di Indonesia.
+
+Tugasmu:
+- Membantu calon pelanggan mendeskripsikan kebutuhan aplikasi bisnis mereka
+- Memberikan estimasi fitur dan biaya berdasarkan kebutuhan
+- Merekomendasikan produk yang tersedia di Ruvida.id jika cocok
+- Menjawab dalam Bahasa Indonesia yang ramah dan profesional
+
+Produk tersedia di Ruvida.id:
+- Aplikasi Kasir (warung, kafe, resto, retail, barbershop) mulai Rp 99.000/bln
+- Sistem Informasi Sekolah (akademik, absensi, SPP, raport) mulai Rp 150.000/bln  
+- Undangan Digital (pernikahan, khitanan, ulang tahun) mulai Rp 50.000
+- Aplikasi Klinik (rekam medis, antrian, billing) mulai Rp 200.000/bln
+- Toko Online (fashion, makanan, perhiasan) mulai Rp 120.000/bln
+- Custom Aplikasi: dibangun dari nol sesuai kebutuhan, harga nego
+
+Saat pengguna menjelaskan kebutuhan, ringkas dalam format daftar fitur, lalu tanya apakah ada tambahan, lalu tawarkan estimasi waktu dan biaya.`,
+};
