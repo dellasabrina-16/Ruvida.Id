@@ -7,6 +7,7 @@ import Category from "./pages/Category";
 import Application from "./pages/Application";
 import ProductDetails from "./pages/ProductDetails";
 import { AuthProvider } from "./context/AuthContext";
+import Chatbot from "./pages/Chatbot";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             path="/aplikasi/:kategori/:produk"
             element={<ProductDetails />}
           />
+          <Route path="custom" element={<Chatbot />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
