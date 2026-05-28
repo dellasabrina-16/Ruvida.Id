@@ -424,14 +424,10 @@ function BestSellerSection() {
 export default function LandingPage() {
   return (
     <div className="font-[Sora,sans-serif] antialiased">
-      <Navbar />
-
       <HeroSection />
       <PaketSection />
       <KeunggulanSection />
       <BestSellerSection />
-
-      <Footer />
     </div>
   );
 }

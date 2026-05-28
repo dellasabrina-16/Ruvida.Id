@@ -1,18 +1,20 @@
+// src/layout/Navbar.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f2e2b]/90 backdrop-blur-md border-b border-white/5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        
+
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
           <div className="w-8 h-8 rounded-lg bg-[#2A8B85] flex items-center justify-center">
             <span className="text-white text-sm font-bold">R</span>
           </div>
-
           <span className="text-white font-bold text-lg tracking-tight">
             Ruvida<span className="text-[#2A8B85]">.id</span>
           </span>
@@ -20,7 +22,6 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
-
           <div className="flex items-center gap-8">
             {["Layanan", "Kelebihan", "Produk"].map((item) => (
               <a
@@ -33,10 +34,12 @@ export default function Navbar() {
             ))}
           </div>
 
-          <button className="bg-[#2A8B85] hover:bg-[#238880] text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors duration-200">
+          <button
+            onClick={() => navigate("/katalog")}
+            className="bg-[#2A8B85] hover:bg-[#238880] text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors duration-200"
+          >
             Lihat Katalog
           </button>
-
         </div>
 
         {/* Mobile Button */}
@@ -68,7 +71,10 @@ export default function Navbar() {
             </a>
           ))}
 
-          <button className="bg-[#2A8B85] text-white text-sm font-semibold px-5 py-2 rounded-lg w-full">
+          <button
+            onClick={() => { navigate("/katalog"); setMenuOpen(false); }}
+            className="bg-[#2A8B85] text-white text-sm font-semibold px-5 py-2 rounded-lg w-full"
+          >
             Lihat Katalog
           </button>
         </div>
