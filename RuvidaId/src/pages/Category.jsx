@@ -35,7 +35,13 @@ export default function Category() {
           {kategoriList.map((kat) => (
             <div
               key={kat.id}
-              onClick={() => navigate(`/aplikasi/${kat.id}`)}
+              onClick={() => {
+                if (kat.id === "custom") {
+                  navigate("/custom");
+                } else {
+                  navigate(`  /aplikasi/${kat.id}`)
+                }
+              }}
               className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ background: kat.gradient }}
             >
