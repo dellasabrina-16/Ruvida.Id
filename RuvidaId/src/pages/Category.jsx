@@ -76,6 +76,7 @@ export default function Category() {
             </div>
           ))}
         </div>
+        
       </div>
     </div>
   );
