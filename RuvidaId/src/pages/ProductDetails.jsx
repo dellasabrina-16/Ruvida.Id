@@ -42,7 +42,7 @@ export default function ProductDetails() {
   const tabs = ["Deskripsi", "Fitur", "Keunggulan"];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pt-20 pb-12 px-4 sm:px-6">
       {/* Breadcrumb */}
       <div className="bg-white border-b border-gray-100 px-4 py-3">
         <div className="max-w-6xl mx-auto flex items-center gap-2 text-sm text-gray-400">

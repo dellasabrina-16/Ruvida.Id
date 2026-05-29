@@ -9,7 +9,7 @@ export default function Category() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Header */}
       <div className="bg-[#0f2e2b] pt-24 pb-12 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <button
             onClick={() => navigate("/")}
             className="flex items-center gap-2 text-[#2A8B85] text-sm font-medium mb-6 hover:text-[#4db6ac] transition-colors"
