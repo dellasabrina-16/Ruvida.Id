@@ -45,8 +45,8 @@ export default function Account() {
   const totalChat = 1;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <div className="max-w-5xl mx-auto flex flex-col gap-6">
+    <div className="min-h-screen bg-gray-50 pt-20 pb-12 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col gap-6">
         {/* ── Header Akun ── */}
         <div>
           <h1 className="text-2xl font-extrabold text-[#1d6b66] mb-1">
@@ -167,11 +167,10 @@ export default function Account() {
                 <button
                   key={tab}
                   onClick={() => setFilterTab(tab)}
-                  className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
-                    filterTab === tab
+                  className={`px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors ${filterTab === tab
                       ? "bg-[#1d6b66] text-white"
                       : "text-gray-500 hover:bg-gray-100"
-                  }`}
+                    }`}
                 >
                   {tab}
                 </button>
