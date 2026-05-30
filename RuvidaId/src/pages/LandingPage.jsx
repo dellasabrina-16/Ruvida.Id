@@ -8,7 +8,7 @@ function HeroSection() {
   return (
     <section
       id=""
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-40 pb-12 overflow-hidden bg-[#0f2421]"
+      className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-30 pb-12 overflow-hidden bg-[#0f2421]"
     >
 
       {/* GRID BACKGROUND */}
@@ -67,23 +67,25 @@ function HeroSection() {
       />
 
       {/* Badge */}
-      <div className="relative z-10 inline-flex items-center gap-2 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
+      <div className="relative z-10 inline-flex items-center gap-2 bg-[#2A8B85]/15 border border-[#2A8B85]/40 rounded-full px-3 py-1.5 mb-8 backdrop-blur-md">
         <span className="w-1.5 h-1.5 rounded-full bg-[#2A8B85] animate-pulse" />
-        <span className="text-white/80 text-xs font-medium tracking-wide">
+        <span className="text-[#3DB5AE] text-xs font-medium tracking-wide">
           Platform Aplikasi Digital Indonesia
         </span>
       </div>
 
       {/* Headline */}
       <h1 className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 max-w-4xl tracking-tight">
-        Solusi Aplikasi Digital untuk{" "}
-        <span className="text-[#3db5ae]">
+        Solusi Aplikasi
+        <br />
+        Digital untuk <br />
+        <span className="text-[#3DB5AE]">
           Bisnis Anda
         </span>
       </h1>
 
       {/* Description */}
-      <p className="relative z-10 text-white/60 text-base sm:text-lg max-w-2xl mb-10 leading-relaxed">
+      <p className="relative z-10 text-white/55 text-base sm:text-lg max-w-2xl mb-10 leading-relaxed">
         Ruvida.id hadir dengan ratusan template aplikasi siap pakai —
         dari kasir digital, sistem sekolah, undangan digital,
         hingga solusi custom sesuai kebutuhan bisnis Anda.
@@ -91,11 +93,17 @@ function HeroSection() {
 
       {/* Buttons */}
       <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 mb-16">
-        <button className="flex items-center gap-2 border border-white/20 hover:border-white/40 text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all duration-300 hover:bg-white/5 backdrop-blur-sm">
+        {/* Button Putih */}
+        <button
+          className="flex items-center gap-2 bg-white text-[#1A2B2A] font-semibold px-8 py-4 rounded-2xl text-sm border border-transparent transition-all duration-300 hover:bg-[#F0EBE0] hover:scale-[1.02]"
+        >
           🗂 Jelajahi Katalog
         </button>
 
-        <button className="flex items-center gap-2 bg-[#2A8B85] hover:bg-[#238880] text-white font-semibold px-6 py-3 rounded-xl text-sm transition-all duration-300 shadow-2xl shadow-[#2A8B85]/30">
+        {/* Button Border Ijo */}
+        <button
+          className="flex items-center gap-2 border border-[#2A8B85] text-[#39C6BE] font-semibold px-8 py-4 rounded-2xl text-sm bg-transparent transition-all duration-300 hover:bg-[#2A8B85] hover:text-white hover:shadow-lg hover:shadow-[#2A8B85]/30 hover:scale-[1.02]"
+        >
           Coba Gratis 7 Hari →
         </button>
       </div>
