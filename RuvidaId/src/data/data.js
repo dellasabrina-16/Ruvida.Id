@@ -1,3 +1,8 @@
+import sstest1 from "../assets/test1.jpg"
+import sstest2 from "../assets/test2.jpg"
+import sstest3 from "../assets/test3.jpg"
+import sstest4 from "../assets/test4.jpg"
+
 // ─── KATEGORI ───────────────────────────────────────────────
 export const kategoriList = [
   {
@@ -346,10 +351,10 @@ export const aplikasiPerKategori = {
 export const detailProduk = {
   "kasir-kafe": {
     screenshots: [
-      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Dashboard",
-      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Menu+Digital",
-      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Laporan",
-      "https://placehold.co/600x400/0f2e2b/2A8B85?text=Manajemen+Meja",
+      sstest1,
+      sstest2,
+      sstest3,
+      sstest4,
     ],
     hargaBulan: "Rp 120K/bln",
     fitur: [
